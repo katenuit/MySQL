@@ -140,23 +140,6 @@ values (5, 'Информатика');
 delete from Discip where (id_disc = 5);
 
 
-select * from excur where name_excur like '%завод%';
-
-select distinct excur.id_excur, excur.name_excur from excur
-inner join excur_discip on excur_discip.id_excur = excur.id_excur
-inner join discip on discip.id_disc = excur_discip.id_disc
-inner join excur_discip as excur_discip2 on excur_discip2.id_excur = excur.id_excur
-inner join discip as discip2 on discip2.id_disc = excur_discip2.id_disc
-where discip.name_disc='История' and discip2.name_disc='Биология';
-
-select student.* from student
-left join excur_stud on excur_stud.id_stud = student.id_stud
-where excur_stud.id_excur is null;
-
-select student.* from excur_stud
-right join student on excur_stud.id_stud = student.id_stud
-where excur_stud.id_excur  is null;
-
 --             Запрос А              --
 --  Экскурсии на заводы (слово «завод» в любом месте названия) --
 select * from excur where name_excur like '%завод%';
